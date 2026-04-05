@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRIBIOZIZ ID Card Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Barcode+39&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="id-card.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+   <!-- Header -->
+   <header>
+      <h1>AGRIBIOZIZ ID Network</h1>
+      <p>Generate professional ID cards for the Agribioziz team.</p>
+   </header>
+
+   <main class="container">
+       <section class="form-section">
+           <h2>Enter Details</h2>
+           <form id="idForm">
+               <div class="input-group">
+                   <label>Full Name</label>
+                   <input type="text" id="nameInput" placeholder="e.g. Jane Doe" oninput="updateCard()" autocomplete="off">
+               </div>
+               <div class="input-group">
+                   <label>Member ID</label>
+                   <input type="text" id="idInput" placeholder="e.g. AGRI-001" oninput="updateCard()" autocomplete="off">
+               </div>
+               <div class="input-group">
+                   <label>Role / Designation</label>
+                   <input type="text" id="courseInput" placeholder="e.g. Agri-Biotechnologist" oninput="updateCard()" autocomplete="off">
+               </div>
+               <div class="input-group">
+                   <label>Department</label>
+                   <input type="text" id="dobInput" placeholder="e.g. Research & Development" oninput="updateCard()" autocomplete="off">
+               </div>
+               <div class="input-group">
+                   <label>Contact Number</label>
+                   <input type="text" id="bloodInput" placeholder="e.g. +91 90472 58125" oninput="updateCard()" autocomplete="off">
+               </div>
+               <div class="input-group">
+                   <label>Profile Picture</label>
+                   <input type="file" id="imageInput" accept="image/*" onchange="loadFile(event)">
+               </div>
+               <button type="button" onclick="downloadID()" class="btn-primary"><i class="fa-solid fa-download"></i> Download ID Card</button>
+               <a href="index.html" class="btn-primary" style="margin-top: 10px; text-decoration: none; background: var(--text-light);"><i class="fa-solid fa-arrow-left"></i> Back to Main Site</a>
+           </form>
+       </section>
+
+       <section class="preview-section">
+           <h2>Live Preview</h2>
+           <div class="id-card-wrapper" id="idCard">
+               <div class="id-card-header">
+                   <h3>AGRIBIOZIZ</h3>
+                   <p>Innovating Agriculture</p>
+               </div>
+               <div class="id-card-body">
+                   <div class="photo-container">
+                       <img id="cardImage" src="https://ui-avatars.com/api/?name=Jane+Doe&background=528B46&color=fff&size=150" alt="Profile">
+                   </div>
+                   <h2 id="cardName">Jane Doe</h2>
+                   <p id="cardCourse" class="course-text">Agri-Biotechnologist</p>
+                   
+                   <div class="details-grid">
+                       <div class="detail-item">
+                           <span class="label">ID NO:</span>
+                           <span id="cardId" class="value">AGRI-001</span>
+                       </div>
+                       <div class="detail-item">
+                           <span class="label">DEPT:</span>
+                           <span id="cardDob" class="value">Research & Dev</span>
+                       </div>
+                       <div class="detail-item">
+                           <span class="label">PHONE:</span>
+                           <span id="cardBlood" class="value">+91 9047258125</span>
+                       </div>
+                   </div>
+               </div>
+               <div class="id-card-footer">
+                   <div class="barcode" id="cardBarcode">
+                       *AGRI001*
+                   </div>
+               </div>
+           </div>
+       </section>
+   </main>
+
+   <script src="id-card.js"></script>
+</body>
+</html>

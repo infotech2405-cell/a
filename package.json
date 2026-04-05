@@ -1,0 +1,11 @@
+{
+  "name": "agribioziz",
+  "version": "1.0.0",
+  "description": "Agribioziz static site",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
